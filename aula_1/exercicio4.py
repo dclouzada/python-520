@@ -141,20 +141,12 @@ lista_de_usuarios = [
   }
 ]
 
-TEMPLATE = '{:>20} | {:5} | {:>50} | {:>2} | {:>30}'
 
-CABECALHO = TEMPLATE.format('NOME', 'IDADE', 'ENDERECO', 'SEXO', 'EMAIL')
+emails = []
 
-print(CABECALHO)
 for usuario in lista_de_usuarios:
-    usuario_formatado = TEMPLATE.format(
-        usuario['nome'],
-        usuario['idade'],
-        usuario['endereco'],
-        usuario['sexo'],
-        usuario['email'],
-    )
-    print(usuario_formatado)
-
-
-
+  if 'j' in usuario["email"].lower() or 'l' in usuario["email"].lower():
+    if usuario["idade"] >25:
+      emails.append(usuario["email"])
+  
+print(emails)
